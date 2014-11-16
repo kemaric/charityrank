@@ -7,21 +7,23 @@
       $('#categoryInput').keypress(function (e) {
         if (e.keyCode == 13) {
          var category = $('#categoryInput').val();
-         var matches;
+         matches = [];
         myCharityDataRef.orderByChild("Category").equalTo(category).on("child_added", function(matchesnap){
          //if there is a result
          var fld = matchesnap.val();
+         matches.push(matchesnap);
           displayCharieties(fld["Title"], fld["Subcategory"]);
             $('#categoryInput').val('');
           });
 
         // var elements = matches.val();
-         console.log("Displaying things in matches...");
+        // console.log("Displaying things in matches...");
+        // console.log("Length of matches: "+ matches.length;
          
-        // console.log (matches[1]);
+        // console.log ("Key: " + matches[1]+ " Value:"+ matches[1]);
         // console.log (matches[10]);
          //console.log (matches[3]);
-         console.log("Finished displaying things in matches!");
+        // console.log("Finished displaying things in matches!");
        }
      });
       /* myCharityDataRef.on('child_added', function(snapshot) {
@@ -71,6 +73,17 @@
       });
         return keyValues;
       };
+
+      function getRandomItems(matches,n){
+          var randomItems = [];
+          while(randomItems.length < n){
+            var item = Math.floor((Math.random() * matches.length));
+            if(randomItems.length > 0 && randomItems.indexOf(matches[item]) == -1){
+              randomItems.push(matches[item]);
+            }
+          }
+          return randomItems;
+      }
 
 
 
