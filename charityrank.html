@@ -16,12 +16,7 @@
     <script>
       var myCharityDataRef = new Firebase('https://chariyrank.firebaseio.com/Charity');
       var categories = retrieveValues(myCharityDataRef,"Category");
-      console.log(categories.toString());
-      //dataToSearch.forEach(function(selectedItem){
-      //  keyValues.push(selectedItem[key])
-     // });
 
-      console.log(categories.toString());
      // var charietyKids = myCharityDataRef;
       $('#categoryInput').keypress(function (e) {
         if (e.keyCode == 13) {
@@ -29,7 +24,6 @@
          var matches = myCharityDataRef.orderByChild("Category").equalTo(category).on("child_added", function(matchesnap){
          //if there is a result
          var fld = matchesnap.val();
-         console.log(matchesnap.val());
           displayCharieties(fld["Title"], fld["Subcategory"]);
             // if(matchesnap.numChildren() > 0){
             //   console.log("Fetching orgs...");
@@ -63,7 +57,6 @@
       function retrieveValues(myCharityDataRef, key){
         var keyValues = [];
          myCharityDataRef.on("child_added", function(snapchild){
-        console.log(snapchild.val()[key]);
         if (keyValues.indexOf(snapchild.val()[key]) == -1) {
           keyValues.push(snapchild.val()[key]);
         }
