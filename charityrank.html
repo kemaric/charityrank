@@ -4,6 +4,7 @@
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
     <script src="js/typeahead.jquery.js" type="text/javascript"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="firebase_main.js"></script>
     <link href="//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/simplex/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style2.css">
   </head>
@@ -14,81 +15,6 @@
 
      <div id='messagesDiv'> </div>
     <script>
-      var myCharityDataRef = new Firebase('https://chariyrank.firebaseio.com/Charity');
-      var categories = retrieveValues(myCharityDataRef,"Category");
-
-     // var charietyKids = myCharityDataRef;
-      $('#categoryInput').keypress(function (e) {
-        if (e.keyCode == 13) {
-         var category = $('#categoryInput').val();
-         var matches = myCharityDataRef.orderByChild("Category").equalTo(category).on("child_added", function(matchesnap){
-         //if there is a result
-         var fld = matchesnap.val();
-          displayCharieties(fld["Title"], fld["Subcategory"]);
-            // if(matchesnap.numChildren() > 0){
-            //   console.log("Fetching orgs...");
-           /** matchesnap.forEach(function(selectedMatch){
-              console.log(selectedMatch.val());
-              var fields = selectedMatch.val();
-              displayCharieties(fields["Title"], fields["Subcategory"]);
-            });**/
-            //   console.log("Finished getting orgs!");
-            // }else{
-            //   displayCharieties("Error", "There are none of that categories!");
-            //   console.log("There are none of that category!");
-            // }
-            //myCharityDataRef.push({name: name, text: text})
-            $('#categoryInput').val('');
-          });
-       }
-     });
-      /* myCharityDataRef.on('child_added', function(snapshot) {
-        var message = snapshot.val();
-        displayCharieties(message.name,message.text);
-      });*/
-
-      function displayCharieties(name,info){
-        console.log("Displaying fields "+name + " and " + info);
-        $('<div/>').text(name).prepend($('<em/>').text(info+': ')).appendTo($('#messagesDiv'));
-        $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
-      };
-
-      //Retrieving the values for the specified key from the to level
-      function retrieveValues(myCharityDataRef, key){
-        var keyValues = [];
-         myCharityDataRef.on("child_added", function(snapchild){
-        if (keyValues.indexOf(snapchild.val()[key]) == -1) {
-          keyValues.push(snapchild.val()[key]);
-        }
-      });
-        return keyValues;
-      };
-
-
-    // Auto complete
-    // https://gist.github.com/jharding/9458744#file-the-basics-js
-    var substringMatcher = function(strs) {
-      return function findMatches(q, cb) {
-        var matches, substrRegex;
-        matches = [];
-        substrRegex = new RegExp(q, 'i');
-        $.each(strs, function(i, str) {
-          if (substrRegex.test(str)) {
-            matches.push({ value: str });
-          }
-        });
-        cb(matches);
-      };
-    };
-    $('#categoryInput').typeahead({
-      highlight: true,
-      minLength: 1
-    },{
-      name: "name",
-      source: substringMatcher(retrieveValues(myCharityDataRef, "Category"))
-    }).on('typeahead:selected', function(event, data){
-      $('#cat-id').val(data);        
-    });
     </script>
   </body>
 </html>
