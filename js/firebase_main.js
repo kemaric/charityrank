@@ -33,10 +33,10 @@
            $("#Subcategory1").html("<b>Subcategory:</b> "+fld["Subcategory"]);
            $("#Financial1").html("<b>Financial:</b> " +fld["Financial"] + "/100");
            $("#Accountability1").html("<b>Accountability & Transparency:</b> " +fld["AccountabilityTransparency"] + "/100");
-           $("#ProgramExpenses1").html("<b>ProgramExpenses: </b>"+fld["ProgramExpenses"]);
-           $("#AdminExpenses1").html("<b>Admin Expenses: </b>"+fld["AdminExpenses"]);
-           $("#Efficency1").html("<b>Fundraising Efficency: </b>"+ fld["TiFundraisingEfficencytle"]);
-           $("#LeaderCompensation1").html("<b>LeaderCompensation: </b>"+fld["LeaderCompensation"]);
+           $("#ProgramExpenses1").html("<b>Program Expenses: </b>"+fld["ProgramExpenses"]);
+           $("#AdminExpenses1").html("<b>Administrative Expenses: </b>"+fld["AdminExpenses"]);
+           $("#Efficency1").html("<b>Fundraising Efficency: </b>"+ fld["FundraisingEfficency"]);
+           $("#LeaderCompensation1").html("<b>Leader Compensation: </b>"+fld["LeaderCompensation"] + " of expenses");
            $("#Location1").html("<b>Location: </b>"+ fld["Location"]["text"].match(locationReg));
 
          });
@@ -49,10 +49,10 @@
            $("#Subcategory2").html("<b>Subcategory:</b> "+fld["Subcategory"]);
            $("#Financial2").html("<b>Financial:</b> " +fld["Financial"] + "/100");
            $("#Accountability2").html("<b>Accountability & Transparency:</b> " +fld["AccountabilityTransparency"] + "/100");
-           $("#ProgramExpenses2").html("<b>ProgramExpenses: </b>"+fld["ProgramExpenses"]);
-           $("#AdminExpenses2").html("<b>Admin Expenses: </b>"+fld["AdminExpenses"]);
-           $("#Efficency2").html("<b>Fundraising Efficency: </b>"+ fld["TiFundraisingEfficencytle"]);
-           $("#LeaderCompensation2").html("<b>LeaderCompensation: </b>"+fld["LeaderCompensation"]);
+           $("#ProgramExpenses2").html("<b>Program Expenses: </b>"+fld["ProgramExpenses"]);
+           $("#AdminExpenses2").html("<b>Administrative Expenses: </b>"+fld["AdminExpenses"]);
+           $("#Efficency2").html("<b>Fundraising Efficency: </b>"+ fld["FundraisingEfficency"]);
+           $("#LeaderCompensation2").html("<b>Leader Compensation: </b>"+fld["LeaderCompensation"] + " of expenses");
            $("#Location2").html("<b>Location: </b>"+ fld["Location"]["text"].match(locationReg));
          });
           
