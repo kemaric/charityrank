@@ -62,3 +62,8 @@
 .input-group-btn-edit {
   width: 1% !important;
 }
+
+.options-hover {
+  background: gray;
+  cursor: pointer;
+}
