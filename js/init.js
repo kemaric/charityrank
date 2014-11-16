@@ -105,4 +105,3 @@ function show() {
    		image3.find('img').attr('src', "images/pic03.jpg");
    	}
 }
-show();
