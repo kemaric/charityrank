@@ -4,7 +4,7 @@
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
     <script src="js/typeahead.jquery.js" type="text/javascript"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/firebase_main.js"></script>
+    <script type="text/javascript" src="js/firebase2_main.js"></script>
     <link href="//maxcdn.bootstrapcdn.com/bootswatch/3.2.0/simplex/bootstrap.min.css" rel="stylesheet">
     <script src="js/skel.min.js"></script>
     <script src="js/script.js"></script>
@@ -13,31 +13,171 @@
       <link rel="stylesheet" href="css/style.css" />
       <link rel="stylesheet" href="css/style-wide.css" />
     </noscript>
-    <link rel="stylesheet" href="css/style2.css">
+    <link rel="stylesheet" href="css/style3.css">
   </head>
   <body>
 
     <div id="header" class="text-center">
-      <h2>Community's Top Results:</h2> 
-      <div id="main">
-        <header class="major container 75%">
-         <ol>
-            <li><p id="ComTitle1">Title1</p></li>
-            <li><p id="ComTitle2">Title2</p></li>
-            <li><p id="ComTitle3">Title3</p></li>
-            <li><p id="ComTitle4">Title4</p></li>
-            <li><p id="ComTitle5">Title5</p></li>
-            <li><p id="ComTitle6">Title6</p></li>
-            <li><p id="ComTitle7">Title7</p></li>
-            <li><p id="ComTitle8">Title8</p></li>
-            <li><p id="ComTitle9">Title9</p></li>
-            <li><p id="ComTitle10">Title10</p></li>
-          </ol>
-        </header>
-      </div>
+            <h2>Community's Top Results:</h2> 
+    <h2>Please type of organization you're interested in:</h2>  
+      <div id="cat-input" >
+        <div class="form-inline">        
+          <div class="input-group col-xs-12 col-sm-8 col-md-6">
+            <input type="hidden" name="id" id="cat-id" class="form-control"/>
+            <input type="text" id="categoryInput" class="form-control" placeholder="Category"/>  
+          </div>
+        </div>
+        <h4>And press enter</h4>
+
     </div>
     
     <script>
     </script>
+          </div>
+      <div id="option" style="visibility: hidden;">
+        <div class="major container 75%">
+         <ol>
+            <li>
+            <div class="panel-body"> 
+              <h1 id="Title1"></h1>
+              <p id="Mission1"></p>
+              <p id="Subcategory1"></p>
+              <p id="Location1"></p>           
+              <p id="Financial1"></p>
+              <p id="Accountability1"></p>
+              <p id="ProgramExpenses1"></p>
+              <p id="AdminExpenses1"></p>
+              <p id="Efficency1"></p>
+              <p id="LeaderCompensation1"></p>
+            </div>
+            </li>
+                        <li>
+            <div class="panel-body"> 
+              <h1 id="Title2"></h1>
+              <p id="Mission2"></p>
+              <p id="Subcategory2"></p>
+              <p id="Location2"></p>           
+              <p id="Financial2"></p>
+              <p id="Accountability2"></p>
+              <p id="ProgramExpenses2"></p>
+              <p id="AdminExpenses2"></p>
+              <p id="Efficency2"></p>
+              <p id="LeaderCompensation2"></p>
+            </div>
+            </li>
+            <li>
+            <div class="panel-body"> 
+              <h1 id="Title3"></h1>
+              <p id="Mission3"></p>
+              <p id="Subcategory3"></p>
+              <p id="Location3"></p>           
+              <p id="Financial3"></p>
+              <p id="Accountability3"></p>
+              <p id="ProgramExpenses3"></p>
+              <p id="AdminExpenses3"></p>
+              <p id="Efficency3"></p>
+              <p id="LeaderCompensation3"></p>
+            </div>
+            </li>
+            <li>
+            <div class="panel-body"> 
+              <h1 id="Title4"></h1>
+              <p id="Mission4"></p>
+              <p id="Subcategory4"></p>
+              <p id="Location4"></p>           
+              <p id="Financial4"></p>
+              <p id="Accountability4"></p>
+              <p id="ProgramExpenses4"></p>
+              <p id="AdminExpenses4"></p>
+              <p id="Efficency4"></p>
+              <p id="LeaderCompensation4"></p>
+            </div>
+            </li>
+            <li>
+            <div class="panel-body"> 
+              <h1 id="Title5"></h1>
+              <p id="Mission5"></p>
+              <p id="Subcategory5"></p>
+              <p id="Location5"></p>           
+              <p id="Financial5"></p>
+              <p id="Accountability5"></p>
+              <p id="ProgramExpenses5"></p>
+              <p id="AdminExpenses5"></p>
+              <p id="Efficency5"></p>
+              <p id="LeaderCompensation5"></p>
+            </div>
+            </li>
+            <li>
+            <div class="panel-body"> 
+              <h1 id="Title6"></h1>
+              <p id="Mission6"></p>
+              <p id="Subcategory6"></p>
+              <p id="Location6"></p>           
+              <p id="Financial6"></p>
+              <p id="Accountability6"></p>
+              <p id="ProgramExpenses6"></p>
+              <p id="AdminExpenses6"></p>
+              <p id="Efficency6"></p>
+              <p id="LeaderCompensation6"></p>
+            </div>
+            </li>
+            <li>
+            <div class="panel-body"> 
+              <h1 id="Title7"></h1>
+              <p id="Mission7"></p>
+              <p id="Subcategory7"></p>
+              <p id="Location7"></p>           
+              <p id="Financial7"></p>
+              <p id="Accountability7"></p>
+              <p id="ProgramExpenses7"></p>
+              <p id="AdminExpenses7"></p>
+              <p id="Efficency7"></p>
+              <p id="LeaderCompensation7"></p>
+            </div>
+            </li>
+            <li>
+            <div class="panel-body"> 
+              <h1 id="Title8"></h1>
+              <p id="Mission8"></p>
+              <p id="Subcategory8"></p>
+              <p id="Location8"></p>           
+              <p id="Financial8"></p>
+              <p id="Accountability8"></p>
+              <p id="ProgramExpenses8"></p>
+              <p id="AdminExpenses8"></p>
+              <p id="Efficency8"></p>
+              <p id="LeaderCompensation8"></p>
+            </div>
+            </li>
+            <li>
+            <div class="panel-body"> 
+              <h1 id="Title9"></h1>
+              <p id="Mission9"></p>
+              <p id="Subcategory9"></p>
+              <p id="Location9"></p>           
+              <p id="Financial9"></p>
+              <p id="Accountability9"></p>
+              <p id="ProgramExpenses9"></p>
+              <p id="AdminExpenses9"></p>
+              <p id="Efficency9"></p>
+              <p id="LeaderCompensation9"></p>
+            </div>
+            </li>
+            <li>
+            <div class="panel-body"> 
+              <h1 id="Title1"></h1>
+              <p id="Mission1"></p>
+              <p id="Subcategory1"></p>
+              <p id="Location1"></p>           
+              <p id="Financial1"></p>
+              <p id="Accountability1"></p>
+              <p id="ProgramExpenses1"></p>
+              <p id="AdminExpenses1"></p>
+              <p id="Efficency1"></p>
+              <p id="LeaderCompensation1"></p>
+            </div>
+            </li>          </ol>
+        </div>
+      </div>
   </body>
 </html>

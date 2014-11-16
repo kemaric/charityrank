@@ -1,0 +1,80 @@
+/* TYPEAHEAD FIX*/
+/* https://github.com/bassjobsen/typeahead.js-bootstrap-css/blob/master/typeaheadjs.css */
+
+#header {
+    background-attachment: scroll,              scroll,         fixed;
+    background-image: url("images/top-3200.svg"), url("images/overlay.png"), url("../images/header3.jpg");
+    background-position: bottom center,         top left,       top right;
+    background-repeat: repeat-x,            repeat,         no-repeat;
+    background-size: 3200px 460px,          auto,         cover;
+    color: rgba(155, 155, 155, 0.8);
+    padding: 10em 0 20em 0;
+    position: relative;
+    text-align: center;
+  }
+
+#header strong, #header b {
+  color: black;
+}
+
+
+.tt-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  display: none;
+  float: left;
+  min-width: 160px;
+  padding: 5px 0;
+  margin: 2px 0 0;
+  list-style: none;
+  font-size: 12px;
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+  background-clip: padding-box;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.tt-dataset-name p {
+  font-size: 12px !important;
+  padding: 0px;
+}
+
+.tt-suggestion {
+  cursor: pointer;
+}
+.tt-suggestion > p {
+  display: block;
+  padding: 0px 20px;
+  clear: both;
+  font-weight: normal;
+  line-height: 1.0;
+  color: #333333 !important;
+  white-space: nowrap;
+}
+.tt-suggestion > p:hover,
+.tt-suggestion > p:focus,
+.tt-suggestion.tt-cursor p {
+  color: #000000 !important;
+  text-decoration: none;
+  outline: 0;
+  background-color: #428bca;
+}
+
+.form-control {
+  width: 100% !important;
+}
+
+.input-group-btn-edit {
+  width: 1% !important;
+}
+
+.options-hover {
+  background: #f8f8f8;
+}
