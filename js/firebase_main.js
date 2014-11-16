@@ -174,15 +174,25 @@
     });
  });
 
-function findMaxes(){
-  var ref = new Firebase('https://chariyrank.firebaseio.com');
-  var i =0;
+function findMaxes(category,n){
+  var result =[];
+  var ref = new Firebase('https://chariyrank.firebaseio.com/Charity');
   var charity = {};
-  ref.once("value", function(matchesnap){
+  ref.orderByChild("Category").equalTo(category).once("value", function(matchesnap){
     charity = matchesnap.val();
-    var  charit = charity["Charity"];
-    var maxv = Math.max.apply(Math,charit.map(function(o){leg=o['elo']; return 1*parseFloat(leg);}))
-    var result = $.grep(charit, function(e){ return e.elo == maxv ; });  });
+    var charit = new Array();
+    for (var key in charity ){
+      charit.push(charity[key]);
+    }
+    while (n>0){
+      var maxv = Math.max.apply(Math,charit.map(function(o){leg=o['elo']; return 1*parseFloat(leg);}))
+      var res = $.grep(charit, function(e){ return e.elo == maxv ; }); 
+      result.push(res.pop());
+      n--;
+    }
+    return result;
+  });
+    
 };
 
 function displayCharieties(name,info){
