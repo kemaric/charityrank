@@ -83,11 +83,13 @@
               if(bracket.length  > 2){             
                  ranker = removeFromRanker(ranker, looser);
             }
+             winvsloss(true,randomCharity[0],loser);
             } else {
             // charity 2 one
               var looser = bracket.pop(randomCharity[0]);
               ranker = addToRanker(ranker, randomCharity[1]);
               ranker = removeFromRanker(ranker, looser);
+               winvsloss(false,loser,randomCharity[1]);
             }
 
           });
