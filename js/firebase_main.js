@@ -7,7 +7,6 @@
       $('#categoryInput').keypress(function (e) {
         if (e.keyCode == 13) {
          var category = $('#categoryInput').val();
-          matchedCategories = [];
         myCharityDataRef.orderByChild("Category").equalTo(category).on("child_added", function(matchesnap){
          //if there is a result
          var fld = matchesnap.val();
@@ -63,6 +62,68 @@
           } else {
           $("#Location2").html("<b>Location: </b>"+ fld["Location"]["text"].match(locationReg));
           }
+
+
+          $("button").click(function(){
+            var buttonTitle = $(this).text();
+            myCharityDataRef.orderByKey().equalTo(randomCharity[0]).on("child_added", function(item){
+            var fld = item.val();
+            if (buttonTitle == fld["Title"]){
+            // charity 1 won
+              matchedCategories.pop(randomCharity[1]);
+            } else {
+            // charity 2 one
+              matchedCategories.pop(randomCharity[0]);
+            }
+
+          });
+           
+         var locationReg = "[A-Za-z ]*, [A-Z]{2}";
+         randomCharity = getRandomItems(matchedCategories,2);
+         myCharityDataRef.orderByKey().equalTo(randomCharity[0]).on("child_added", function(item){
+          var fld = item.val();
+         
+          console.log(fld);
+          $("#Title1").html(fld["Title"]);
+          $("#buttonTitle1").text(fld["Title"]);
+          $("#Mission1").html("<b>Mission:</b> "+fld["Mission"]);
+          $("#Subcategory1").html("<b>Subcategory:</b> "+fld["Subcategory"]);
+          $("#Financial1").html("<b>Financial:</b> " +fld["Financial"] + "/100");
+          $("#Accountability1").html("<b>Accountability & Transparency:</b> " +fld["AccountabilityTransparency"] + "/100");
+          $("#ProgramExpenses1").html("<b>Program Expenses: </b>"+fld["ProgramExpenses"]);
+          $("#AdminExpenses1").html("<b>Administrative Expenses: </b>"+fld["AdminExpenses"]);
+          $("#Efficency1").html("<b>Fundraising Efficency: </b>"+ fld["FundraisingEfficency"]);
+          $("#LeaderCompensation1").html("<b>Leader Compensation: </b>"+fld["LeaderCompensation"] + " of expenses");
+          if (fld["Location"]["text"].match(locationReg) == null){
+            $("#Location1").html("<b>Location: </b> N/A");
+          } else {
+          $("#Location1").html("<b>Location: </b>"+ fld["Location"]["text"].match(locationReg));
+          }
+         });
+
+          myCharityDataRef.orderByKey().equalTo(randomCharity[1]).on("child_added", function(item){
+          var fld = item.val();
+          console.log(fld);
+          $("#Title2").html(fld["Title"]);
+          $("#buttonTitle2").text(fld["Title"]);
+          $("#Mission2").html("<b>Mission:</b> "+fld["Mission"]);
+          $("#Subcategory2").html("<b>Subcategory:</b> "+fld["Subcategory"]);
+          $("#Financial2").html("<b>Financial:</b> " +fld["Financial"] + "/100");
+          $("#Accountability2").html("<b>Accountability & Transparency:</b> " +fld["AccountabilityTransparency"] + "/100");
+          $("#ProgramExpenses2").html("<b>Program Expenses: </b>"+fld["ProgramExpenses"]);
+          $("#AdminExpenses2").html("<b>Administrative Expenses: </b>"+fld["AdminExpenses"]);
+          $("#Efficency2").html("<b>Fundraising Efficency: </b>"+ fld["FundraisingEfficency"]);
+          $("#LeaderCompensation2").html("<b>Leader Compensation: </b>"+fld["LeaderCompensation"] + " of expenses");
+          if (fld["Location"]["text"].match(locationReg) == null){
+            $("#Location2").html("<b>Location: </b> N/A");
+          } else {
+          $("#Location2").html("<b>Location: </b>"+ fld["Location"]["text"].match(locationReg));
+          }
+
+
+            //getRandomItems
+          });
+        });
          });
           
         // firstRef.on("child_added", function(orgInfo){
@@ -83,8 +144,6 @@
         // console.log("Finished displaying things in matches!");
        }
      });
-
-    
       /* myCharityDataRef.on('child_added', function(snapshot) {
         var message = snapshot.val();
         displayCharieties(message.name,message.text);
@@ -144,7 +203,7 @@ function getRandomItems(matchedCategories,n){
     return randomItems;
 };
 
-function calcElo(p1beatp2,p1elo,p1wins,p1loses,p2elo,p2wins,p2loses) {
+function calcElo(p1beatp2,p1wins,p1loses,p2wins,p2loses) {
   if(p1beatp2){
     p1wins++;
     p2loses++;
