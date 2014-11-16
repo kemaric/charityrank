@@ -1,6 +1,11 @@
 /* TYPEAHEAD FIX*/
 /* https://github.com/bassjobsen/typeahead.js-bootstrap-css/blob/master/typeaheadjs.css */
 
+#header strong, #header b {
+  color: black;
+}
+
+
 .tt-dropdown-menu {
   position: absolute;
   top: 100%;
@@ -34,17 +39,17 @@
 }
 .tt-suggestion > p {
   display: block;
-  padding: 5px 20px;
+  padding: 0px 20px;
   clear: both;
   font-weight: normal;
-  line-height: 0.5;
-  color: #333333;
+  line-height: 1.0;
+  color: #333333 !important;
   white-space: nowrap;
 }
 .tt-suggestion > p:hover,
 .tt-suggestion > p:focus,
 .tt-suggestion.tt-cursor p {
-  color: #ffffff;
+  color: #000000 !important;
   text-decoration: none;
   outline: 0;
   background-color: #428bca;
