@@ -47,6 +47,8 @@
 				}
 
 			}
+
+
 			$( "#image1" ).mouseenter(function() {
 				$(this).find('img').attr('src', "images/pic11.jpeg");
 			});
@@ -72,3 +74,26 @@
 	});
 
 })(jQuery);
+
+$(window).scroll(show);
+function show() {
+	var win = $(window);
+	var top = win.scrollTop();
+	var heighthalf = win.height()/4;
+	var image1 = $("#image1");
+	var image2 = $("#image2");
+	var image3 = $("#image3");
+    var posY1 = image1.offset().top - top;
+    var posY2 = image2.offset().top - top;
+    var posY3 = image3.offset().top - top;
+   	if (posY1 <heighthalf){
+   		image1.find('img').attr('src', "images/pic11.jpeg");
+   	}
+   	if (posY2 <heighthalf){
+   		image2.find('img').attr('src', "images/pic22.jpg");
+   	}
+   	if (posY3 <heighthalf){
+   		image3.find('img').attr('src', "images/pic33.jpg");
+   	}
+}
+show();
