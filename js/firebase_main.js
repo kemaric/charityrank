@@ -142,4 +142,24 @@ function getRandomItems(matchedCategories,n){
       }
     }
     return randomItems;
-}
+};
+
+function calcElo(p1beatp2,p1elo,p1wins,p1loses,p2elo,p2wins,p2loses) {
+  if(p1beatp2){
+    p1wins++;
+    p2loses++;
+  }else{
+    p2wins++;
+    p1loses++;
+  }
+
+  var newp1Elo=(p2elo+400*(p1wins-p1loses))/(p1wins+p1loses);
+  var newp2Elo=(p1elo+400*(p2wins-p2loses))/(p2wins+p2loses);
+  return {
+    newp1Elo: newp1Elo,
+    p1wins: p1wins,
+    p1loses: p1loses,
+    newp2Elo: newp2Elo,
+    p2wins: p2wins,
+    p2loses: p2loses}
+};
