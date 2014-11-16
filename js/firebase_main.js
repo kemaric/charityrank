@@ -93,6 +93,11 @@
             }
 
           });
+
+          $("#options").css('visibility','visible');
+          $('html, body').animate({
+            scrollTop: $("#options").offset().top
+          }, 1000);
            
            if(bracket.length > 1){
             var locationReg = "[A-Za-z ]*, [A-Z]{2}";
@@ -160,9 +165,12 @@
                             console.log(fld);
                             $("#Title3").html(fld["Title"]);
                          });
+            $("#options").css('visibility','visible');
+            $('html, body').animate({
+              scrollTop: $("#header").offset().top
+            }, 1000);
 
-
-         }
+             }
          
         });
          });
