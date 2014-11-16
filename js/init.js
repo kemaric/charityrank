@@ -79,7 +79,7 @@ $(window).scroll(show);
 function show() {
 	var win = $(window);
 	var top = win.scrollTop();
-	var heighthalf = win.height()/4;
+	var heighthalf = win.height()/3;
 	var image1 = $("#image1");
 	var image2 = $("#image2");
 	var image3 = $("#image3");
@@ -94,6 +94,15 @@ function show() {
    	}
    	if (posY3 <heighthalf){
    		image3.find('img').attr('src', "images/pic33.jpg");
+   	}
+   	   	if (posY1 >heighthalf){
+   		image1.find('img').attr('src', "images/pic01.jpg");
+   	}
+   	if (posY2 >heighthalf){
+   		image2.find('img').attr('src', "images/pic02.jpg");
+   	}
+   	if (posY3 >heighthalf){
+   		image3.find('img').attr('src', "images/pic03.jpg");
    	}
 }
 show();
