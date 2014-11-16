@@ -22,8 +22,43 @@
           scrollTop: $("#options").offset().top
         }, 2000);
         
-        // randomCharity = getRandomItems(matchedCategories,2);
-        // firstRef = new Firebase(URL+"/"+randomCharity[0]);
+         var locationReg = "[A-Za-z ]*, [A-Z]{2}";
+         randomCharity = getRandomItems(matchedCategories,2);
+         myCharityDataRef.orderByKey().equalTo(randomCharity[0]).on("child_added", function(item){
+          var fld = item.val();
+         
+          console.log(fld);
+           $("#Title1").text(fld["Title"]);
+           $("#Mission1").text("Mission: "+fld["Mission"]);
+           $("#Financial1").text("Financial: " +fld["Financial"]);
+           $("#ProgramExpenses1").text("ProgramExpenses: "+fld["ProgramExpenses"]);
+           $("#AdminExpenses1").text("AdminExpenses: "+fld["AdminExpenses"]);
+           $("#Efficency1").text("FundraisingEfficency: "+ fld["TiFundraisingEfficencytle"]);
+           $("#LeaderCompensation1").text("LeaderCompensation: "+fld["LeaderCompensation"]);
+           $("#Subcategory1").text("Subcategory: "+fld["Subcategory"]);
+           $("#Location1").text("Location: "+ fld["Location"]["text"].match(locationReg));
+
+         });
+
+          myCharityDataRef.orderByKey().equalTo(randomCharity[1]).on("child_added", function(item){
+          var fld = item.val();
+          console.log(fld);
+           $("#Title2").text(fld["Title"]);
+           $("#Mission2").text("Mission: "+fld["Mission"]);
+           $("#Financial2").text("Financial: " +fld["Financial"]);
+           $("#ProgramExpenses2").text("ProgramExpenses: "+fld["ProgramExpenses"]);
+           $("#AdminExpenses2").text("AdminExpenses: "+fld["AdminExpenses"]);
+           $("#Efficency2").text("FundraisingEfficency: "+ fld["TiFundraisingEfficencytle"]);
+           $("#LeaderCompensation2").text("LeaderCompensation: "+fld["LeaderCompensation"]);
+           $("#Subcategory2").text("Subcategory: "+fld["Subcategory"]);
+            console.log(fld["Location"]);
+           $("#Location2").text("Location: "+ fld["Location"]["text"].match(locationReg));
+         });
+          
+        // firstRef.on("child_added", function(orgInfo){
+         // var fld = orgInfo
+        // });
+         
         // secondRef = new Firebase(URL+"/"+randomCharity[1]);
 
 
@@ -38,6 +73,8 @@
         // console.log("Finished displaying things in matches!");
        }
      });
+
+    
       /* myCharityDataRef.on('child_added', function(snapshot) {
         var message = snapshot.val();
         displayCharieties(message.name,message.text);
@@ -90,7 +127,7 @@ function getRandomItems(matchedCategories,n){
     var randomItems = [];
     while(randomItems.length < n){
       var item = Math.floor((Math.random() * matchedCategories.length));
-      if(randomItems.length > 0 && randomItems.indexOf(matchedCategories[item]) == -1){
+      if(randomItems.indexOf(matchedCategories[item]) == -1){
         randomItems.push(matchedCategories[item]);
       }
     }
