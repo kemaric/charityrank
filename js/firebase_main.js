@@ -174,6 +174,16 @@
     });
  });
 
+function findMaxes(){
+  var ref = new Firebase('https://chariyrank.firebaseio.com');
+  var i =0;
+  var charity = {};
+  ref.once("value", function(matchesnap){
+    charity = matchesnap.val();
+    var  charit = charity["Charity"];
+    var maxv = Math.max.apply(Math,charit.map(function(o){leg=o['elo']; return 1*parseFloat(leg);}))
+    var result = $.grep(charit, function(e){ return e.elo == maxv ; });  });
+};
 
 function displayCharieties(name,info){
   console.log("Displaying fields "+name + " and " + info);
