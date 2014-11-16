@@ -28,31 +28,32 @@
           var fld = item.val();
          
           console.log(fld);
-           $("#Title1").text(fld["Title"]);
-           $("#Mission1").text("Mission: "+fld["Mission"]);
-           $("#Financial1").text("Financial: " +fld["Financial"]);
-           $("#ProgramExpenses1").text("ProgramExpenses: "+fld["ProgramExpenses"]);
-           $("#AdminExpenses1").text("AdminExpenses: "+fld["AdminExpenses"]);
-           $("#Efficency1").text("FundraisingEfficency: "+ fld["TiFundraisingEfficencytle"]);
-           $("#LeaderCompensation1").text("LeaderCompensation: "+fld["LeaderCompensation"]);
-           $("#Subcategory1").text("Subcategory: "+fld["Subcategory"]);
-           $("#Location1").text("Location: "+ fld["Location"]["text"].match(locationReg));
+           $("#Title1").html(fld["Title"]);
+           $("#Mission1").html("<b>Mission:</b> "+fld["Mission"]);
+           $("#Subcategory1").html("<b>Subcategory:</b> "+fld["Subcategory"]);
+           $("#Financial1").html("<b>Financial:</b> " +fld["Financial"] + "/100");
+           $("#Accountability1").html("<b>Accountability & Transparency:</b> " +fld["AccountabilityTransparency"] + "/100");
+           $("#ProgramExpenses1").html("<b>ProgramExpenses: </b>"+fld["ProgramExpenses"]);
+           $("#AdminExpenses1").html("<b>Admin Expenses: </b>"+fld["AdminExpenses"]);
+           $("#Efficency1").html("<b>Fundraising Efficency: </b>"+ fld["TiFundraisingEfficencytle"]);
+           $("#LeaderCompensation1").html("<b>LeaderCompensation: </b>"+fld["LeaderCompensation"]);
+           $("#Location1").html("<b>Location: </b>"+ fld["Location"]["text"].match(locationReg));
 
          });
 
           myCharityDataRef.orderByKey().equalTo(randomCharity[1]).on("child_added", function(item){
           var fld = item.val();
           console.log(fld);
-           $("#Title2").text(fld["Title"]);
-           $("#Mission2").text("Mission: "+fld["Mission"]);
-           $("#Financial2").text("Financial: " +fld["Financial"]);
-           $("#ProgramExpenses2").text("ProgramExpenses: "+fld["ProgramExpenses"]);
-           $("#AdminExpenses2").text("AdminExpenses: "+fld["AdminExpenses"]);
-           $("#Efficency2").text("FundraisingEfficency: "+ fld["TiFundraisingEfficencytle"]);
-           $("#LeaderCompensation2").text("LeaderCompensation: "+fld["LeaderCompensation"]);
-           $("#Subcategory2").text("Subcategory: "+fld["Subcategory"]);
-            console.log(fld["Location"]);
-           $("#Location2").text("Location: "+ fld["Location"]["text"].match(locationReg));
+           $("#Title2").html(fld["Title"]);
+           $("#Mission2").html("<b>Mission:</b> "+fld["Mission"]);
+           $("#Subcategory2").html("<b>Subcategory:</b> "+fld["Subcategory"]);
+           $("#Financial2").html("<b>Financial:</b> " +fld["Financial"] + "/100");
+           $("#Accountability2").html("<b>Accountability & Transparency:</b> " +fld["AccountabilityTransparency"] + "/100");
+           $("#ProgramExpenses2").html("<b>ProgramExpenses: </b>"+fld["ProgramExpenses"]);
+           $("#AdminExpenses2").html("<b>Admin Expenses: </b>"+fld["AdminExpenses"]);
+           $("#Efficency2").html("<b>Fundraising Efficency: </b>"+ fld["TiFundraisingEfficencytle"]);
+           $("#LeaderCompensation2").html("<b>LeaderCompensation: </b>"+fld["LeaderCompensation"]);
+           $("#Location2").html("<b>Location: </b>"+ fld["Location"]["text"].match(locationReg));
          });
           
         // firstRef.on("child_added", function(orgInfo){
