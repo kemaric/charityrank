@@ -46,7 +46,7 @@
 
                                for(i=0;i<10;i++){
 
-                                $("#Title"+i.toString()).html(result[i]["Title"]);
+                                $("#Title"+i.toString()).html("#"+i.toString()+". "+result[i]["Title"]);
                                 $("#buttonTitle"+i.toString()).text(result[i]["Title"]);
                                 $("#Mission"+i.toString()).html("<b>Mission:</b> "+result[i]["Mission"]);
                                 $("#Subcategory"+i.toString()).html("<b>Subcategory:</b> "+result[i]["Subcategory"]);
@@ -64,17 +64,6 @@
 
 
                                }
-
-                               $("#ComTitle1").html(result[0]["Title"]);
-                               $("#ComTitle2").html(result[1]["Title"]);
-                               $("#ComTitle3").html(result[2]["Title"]);
-                               $("#ComTitle4").html(result[3]["Title"]);
-                               $("#ComTitle5").html(result[4]["Title"]);
-                               $("#ComTitle6").html(result[5]["Title"]);
-                               $("#ComTitle7").html(result[6]["Title"]);
-                               $("#ComTitle8").html(result[7]["Title"]);
-                               $("#ComTitle9").html(result[8]["Title"]);
-                               $("#ComTitle10").html(result[9]["Title"]);
 
                               });
 
