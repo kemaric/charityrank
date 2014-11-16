@@ -16,9 +16,15 @@
             $('#categoryInput').val('');
           });
 
-        randomCharity = getRandomItems(matchedCategories,2);
-        firstRef = new Firebase(URL+"/"+randomCharity[0]);
-        secondRef = new Firebase(URL+"/"+randomCharity[1]);
+
+        $("#options").css('visibility','visible');
+        $('html, body').animate({
+          scrollTop: $("#options").offset().top
+        }, 2000);
+        
+        // randomCharity = getRandomItems(matchedCategories,2);
+        // firstRef = new Firebase(URL+"/"+randomCharity[0]);
+        // secondRef = new Firebase(URL+"/"+randomCharity[1]);
 
 
 
@@ -63,30 +69,30 @@
  });
 
 
-      function displayCharieties(name,info){
-        console.log("Displaying fields "+name + " and " + info);
-        $('<div/>').text(name).prepend($('<em/>').text(info+': ')).appendTo($('#messagesDiv'));
-        $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
-      };
+function displayCharieties(name,info){
+  console.log("Displaying fields "+name + " and " + info);
+  $('<div/>').text(name).prepend($('<em/>').text(info+': ')).appendTo($('#messagesDiv'));
+  $('#messagesDiv')[0].scrollTop = $('#messagesDiv')[0].scrollHeight;
+};
 
-      //Retrieving the values for the specified key from the to level
-      function retrieveValues(myCharityDataRef, key){
-        var keyValues = [];
-         myCharityDataRef.on("child_added", function(snapchild){
-        if (keyValues.indexOf(snapchild.val()[key]) == -1) {
-          keyValues.push(snapchild.val()[key]);
-        }
-      });
-        return keyValues;
-      };
+//Retrieving the values for the specified key from the to level
+function retrieveValues(myCharityDataRef, key){
+  var keyValues = [];
+   myCharityDataRef.on("child_added", function(snapchild){
+  if (keyValues.indexOf(snapchild.val()[key]) == -1) {
+    keyValues.push(snapchild.val()[key]);
+  }
+});
+  return keyValues;
+};
 
-      function getRandomItems(matchedCategories,n){
-          var randomItems = [];
-          while(randomItems.length < n){
-            var item = Math.floor((Math.random() * matchedCategories.length));
-            if(randomItems.length > 0 && randomItems.indexOf(matchedCategories[item]) == -1){
-              randomItems.push(matchedCategories[item]);
-            }
-          }
-          return randomItems;
+function getRandomItems(matchedCategories,n){
+    var randomItems = [];
+    while(randomItems.length < n){
+      var item = Math.floor((Math.random() * matchedCategories.length));
+      if(randomItems.length > 0 && randomItems.indexOf(matchedCategories[item]) == -1){
+        randomItems.push(matchedCategories[item]);
       }
+    }
+    return randomItems;
+}
