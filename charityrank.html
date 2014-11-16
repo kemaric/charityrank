@@ -2,10 +2,13 @@
   <head>
     <script src='https://cdn.firebase.com/js/client/2.0.2/firebase.js'></script>
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'></script>
+    <script src="js/typeahead.jquery.js" type="text/javascript"></script>
   </head>
   <body>
     <div id = "header"> <p>Please enter the type of organization you're interested in...</p></div>
-    <input type='text' id='categoryInput' placeholder='Category'>
+    <input type="hidden" name="id" id="cat-id" class="form-control"/>
+    <input type="text" id="categoryInput" class="form-control" placeholder="Category"/>
+
      <div id='messagesDiv'> </div>
     <script>
       var myCharityDataRef = new Firebase('https://chariyrank.firebaseio.com/Charity');
@@ -58,10 +61,38 @@
         var keyValues = [];
          myCharityDataRef.on("child_added", function(snapchild){
         console.log(snapchild.val()[key]);
-        keyValues.push(snapchild.val()[key]);
+        if (keyValues.indexOf(snapchild.val()[key]) == -1) {
+          keyValues.push(snapchild.val()[key]);
+        }
       });
         return keyValues;
       };
+
+
+    // Auto complete
+    // https://gist.github.com/jharding/9458744#file-the-basics-js
+    var substringMatcher = function(strs) {
+      return function findMatches(q, cb) {
+        var matches, substrRegex;
+        matches = [];
+        substrRegex = new RegExp(q, 'i');
+        $.each(strs, function(i, str) {
+          if (substrRegex.test(str)) {
+            matches.push({ value: str });
+          }
+        });
+        cb(matches);
+      };
+    };
+    $('#categoryInput').typeahead({
+      highlight: true,
+      minLength: 1
+    },{
+      name: "name",
+      source: substringMatcher(retrieveValues(myCharityDataRef, "Category"))
+    }).on('typeahead:selected', function(event, data){
+      $('#cat-id').val(data);        
+    });
     </script>
   </body>
 </html>
