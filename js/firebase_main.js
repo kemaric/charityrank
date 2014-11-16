@@ -29,6 +29,7 @@
          
           console.log(fld);
           $("#Title1").html(fld["Title"]);
+          $("#buttonTitle1").text(fld["Title"]);
           $("#Mission1").html("<b>Mission:</b> "+fld["Mission"]);
           $("#Subcategory1").html("<b>Subcategory:</b> "+fld["Subcategory"]);
           $("#Financial1").html("<b>Financial:</b> " +fld["Financial"] + "/100");
@@ -48,6 +49,7 @@
           var fld = item.val();
           console.log(fld);
           $("#Title2").html(fld["Title"]);
+          $("#buttonTitle2").text(fld["Title"]);
           $("#Mission2").html("<b>Mission:</b> "+fld["Mission"]);
           $("#Subcategory2").html("<b>Subcategory:</b> "+fld["Subcategory"]);
           $("#Financial2").html("<b>Financial:</b> " +fld["Financial"] + "/100");
